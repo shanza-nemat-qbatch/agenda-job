@@ -36,6 +36,11 @@ const addIDkeyValue = async (response, list , name) => {
 
    return newList;
 }
+
+const dis = () =>{
+    reurn 
+}
+
 export const storeOrders = async (orders, ordersArray, shippingArray, postalAddressArray, orderLinesArray) => {
    try {
       const ordersResponse = await orderDetails.insertMany(ordersArray);

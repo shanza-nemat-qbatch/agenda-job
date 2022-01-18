@@ -14,11 +14,11 @@ export const createCatalogJob = async () => {
 export const CreateReport = async () => {
   const createReportJob = await Jobs.findOne({ name: 'createReport' });
   console.log("~ CreateReport job created!")
-  if (!createReportJob) {
+ // if (!createReportJob) {
     await Agenda.create('createReport')
       .repeatEvery('15 minutes')
       .save();
-  }
+  //}
 }
 
 export const OrderListingWalmart = async () =>{ 
@@ -29,4 +29,14 @@ export const OrderListingWalmart = async () =>{
     .repeatEvery('15 minutes')
     .save();
  // }
+}
+
+export const singleOrder = async () =>{
+  const singleOrderItem = await Jobs.findOne({name: 'singleOrderWalmart'});
+  console.log("~create job for the single order walmart");
+  // if(!singleOrderWalmart){
+  await Agenda.create('singleOrderWalmart')
+  .repeatEvery('15 minutes')
+  .save();
+  // }
 }

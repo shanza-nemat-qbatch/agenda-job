@@ -2,7 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import Agenda from './src/config/agenda-jobs';
 import Agendash from 'agendash';
-import { createCatalogJob, CreateReport, OrderListingWalmart } from './src/helpers/jobs/create-jobs'
+import { createCatalogJob, CreateReport, OrderListingWalmart,  singleOrder} from './src/helpers/jobs/create-jobs'
 import setupDatabase from './src/config/database';
 import applyMiddlewares from './src/middlewares';
 import router from './src/routes';
@@ -24,7 +24,8 @@ app.listen(process.env.PORT, async () => {
   await Agenda.start();
   console.log('🚀 Agenda Started');
   //createCatalogJob();
-  //CreateReport();
-  OrderListingWalmart();
+  CreateReport();
+  //OrderListingWalmart();
+  //singleOrder();
 });
 export default app;
